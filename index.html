@@ -23,7 +23,7 @@
         <div class="col-6 p-5">
             <!-- <button class="btn btn-primary">Primary Button</button> -->
 
-            <!-- <div class="card mt">
+            <!-- <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">This Card</h5>
                     <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, quam.</p>
@@ -48,7 +48,18 @@
             }
         }
 
-        ReactDOM.render(<ButtonJsx/>, document.getElementById('App'));
+        class Cards extends React.Component {
+            render() {
+                const link = React.createElement('a',{href : '#', class : 'btn btn-primary'}, 'Go Some Where')
+                const cardText = React.createElement('p', {class : 'card-text'}, 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, quam.')
+                const cardTitle = React.createElement('h5', {class: 'card-title'},'This is Card')
+                const cardBody = React.createElement('div',{class:'card-body'},cardTitle,cardText,link)
+                const card = React.createElement('div',{class: 'card'}, cardBody)
+                return card
+            }
+        }
+
+        ReactDOM.render(<Cards/>, document.getElementById('App'));
     </script>
 
     <!-- Javascript Bundle with Popper-->
