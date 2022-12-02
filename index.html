@@ -61,7 +61,7 @@
 
         class ButtonJSX extends React.Component {
             render() {
-                return <button className={"btn btn-primary"}>Primary Button with Component</button>
+                return <button className={"btn btn-primary m-3"}>{this.props.desc}</button>
             }
         }
 
@@ -79,12 +79,37 @@
             }
         }
 
+        // Ini Percobaan Change State in Component Class
+        class FieldEmailClasses extends React.Component {
+            constructor(){
+                super();
+                this.state = {
+                    title : "Email Business"
+                }
+            }
+
+            changeHandle = () => {
+                this.setState({
+                    title : "Email Business for Profesional"
+                })
+            }
+
+            render(){
+                return (
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">{this.state.title}</label>
+                        <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                        <button className="btn btn-primary m-3" onClick={this.changeHandle}>Change Label Name</button>
+                    </div>
+                )
+            }
+        }
 
         // 2. This is Functional Component
         const FieldEmail = () => {
             return(
                     <div className="mb-3">
-                        <label htmlfor="exampleFormControlInput1" className="form-label">Email address</label>
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
                         <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
                     </div>
             )
@@ -93,7 +118,7 @@
         const FieldPassword = () => {
             return(
                 <div className="mb-3">
-                    <label htmlfor="exampleFormControlInput1" className="form-label">Password</label>
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Password</label>
                     <input type="password" className="form-control" id="exampleFormControlInput1" placeholder="Your Password" />
                 </div>
             )
@@ -102,14 +127,20 @@
         const Login = () => {
             return(
                 <div>
-                    <FieldEmail />
+                    <FieldEmailClasses />
                     <FieldPassword />
-                    <ButtonClasses />
+                    <ButtonJSX desc="Primary Button with Props 1"/>
+                    <ButtonJSX desc="Primary Button with Props 2"/>
                 </div>
             )
         }
 
-        ReactDOM.render(<Login />, document.getElementById('App'));
+        // ReactDOM.render(<Login />, document.getElementById('App'));
+        ReactDOM.createRoot(document.getElementById('App')).render(
+            <React.StrictMode>
+                <Login />
+            </React.StrictMode>
+        )
     </script>
 
     <!-- Javascript Bundle with Popper-->
