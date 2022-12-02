@@ -36,14 +36,14 @@
         </div>
     </div>
 
-
-
     <!-- Create Script JSX-->
     <script type="text/babel">
 
+
+        // 1. This is Class Component
         class ButtonClasses extends React.Component {
             render() {
-                const btn = React.createElement('button', {class : 'btn btn-primary'}, 'Button Primary')
+                const btn = React.createElement('button', {class : 'btn btn-primary'}, 'Log in')
                return btn 
             }
         }
@@ -79,7 +79,37 @@
             }
         }
 
-        ReactDOM.render(<CardJSX/>, document.getElementById('App'));
+
+        // 2. This is Functional Component
+        const FieldEmail = () => {
+            return(
+                    <div className="mb-3">
+                        <label htmlfor="exampleFormControlInput1" className="form-label">Email address</label>
+                        <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                    </div>
+            )
+        }
+
+        const FieldPassword = () => {
+            return(
+                <div className="mb-3">
+                    <label htmlfor="exampleFormControlInput1" className="form-label">Password</label>
+                    <input type="password" className="form-control" id="exampleFormControlInput1" placeholder="Your Password" />
+                </div>
+            )
+        }
+
+        const Login = () => {
+            return(
+                <div>
+                    <FieldEmail />
+                    <FieldPassword />
+                    <ButtonClasses />
+                </div>
+            )
+        }
+
+        ReactDOM.render(<Login />, document.getElementById('App'));
     </script>
 
     <!-- Javascript Bundle with Popper-->
