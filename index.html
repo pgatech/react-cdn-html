@@ -41,7 +41,7 @@
     <!-- Create Script JSX-->
     <script type="text/babel">
 
-        class ButtonJsx extends React.Component {
+        class ButtonClasses extends React.Component {
             render() {
                 const btn = React.createElement('button', {class : 'btn btn-primary'}, 'Button Primary')
                return btn 
@@ -59,7 +59,27 @@
             }
         }
 
-        ReactDOM.render(<Cards/>, document.getElementById('App'));
+        class ButtonJSX extends React.Component {
+            render() {
+                return <button className={"btn btn-primary"}>Primary Button with Component</button>
+            }
+        }
+
+        class CardJSX extends React.Component {
+            render() {
+                return (
+                    <div className={"card"}>
+                        <div className={"card-body"}>
+                            <h5 className={"card-title"}>This Card</h5>
+                            <p className={"card-text"}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, quam.</p>
+                            <a href={"#"} className={"btn btn-primary"}>Go Some Where</a>
+                        </div>
+                    </div>
+                )   
+            }
+        }
+
+        ReactDOM.render(<CardJSX/>, document.getElementById('App'));
     </script>
 
     <!-- Javascript Bundle with Popper-->
